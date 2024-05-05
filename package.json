@@ -4,7 +4,8 @@
   "description": "Algorithms snippets not to forget about",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "test_dir": "mocha"
   },
   "type": "module",
   "author": "",
