@@ -2,7 +2,7 @@ import assert from 'assert';
 import Heap from '../../lib/heap.js';
 
 describe('Heap', () => {
-  describe('min_heap', () => {
+  describe('new Heap()', () => {
     it('#.length should return 0 when heap is empty', () => {
       const min_heap = new Heap();
       assert.equal(min_heap.length, 0);
@@ -52,7 +52,7 @@ describe('Heap', () => {
     });
 
   });
-  describe('max_heap', () => {
+  describe('new Heap((a, b) => a - b)', () => {
     it('#.length should return 0 when heap is empty', () => {
       const max_heap = new Heap((a, b) => a - b);
       assert.equal(max_heap.length, 0);
