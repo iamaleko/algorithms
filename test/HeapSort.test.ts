@@ -3,7 +3,7 @@ import { HeapSort } from '@src/index.js';
 
 describe('HeapSort', () => {
   describe('new HeapSort((a, b) => a - b)', () => {
-    const ascSorter = new HeapSort((a: number, b: number) => a - b);
+    const ascSorter = new HeapSort();
 
     it('#.sort() should return 1,2 for 2,1', () => {
       assert.deepStrictEqual(ascSorter.sort([2,1]), [1,2]);
@@ -29,7 +29,7 @@ describe('HeapSort', () => {
     });
   });
   describe('new HeapSort((a, b) => b - a)', () => {
-    const descSorter = new HeapSort((a: number, b: number) => b - a);
+    const descSorter = new HeapSort<number>((a: number, b: number) => b - a);
 
     it('#.sort() should return 2,1 for 1,2', () => {
       assert.deepStrictEqual(descSorter.sort([1,2]), [2,1]);

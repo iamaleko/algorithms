@@ -2,42 +2,42 @@ import assert from 'assert';
 import { Heap } from '@src/index.js';
 
 describe('Heap', () => {
-  describe('new Heap((a, b) => a - b)', () => {
+  describe('new Heap()', () => {
     it('#.length should return 0 when heap is empty', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       assert.strictEqual(minHeap.length, 0);
     });
 
     it('#.length should return 3 when heap contains 3, 1, 2', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       minHeap.push(3, 1, 2);
       assert.strictEqual(minHeap.length, 3);
     });
 
     it('#.peak() should return undefined when heap is empty', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       assert.strictEqual(minHeap.peak(), undefined);
     });
 
     it('#.peak() should return 1 when heap contains 3, 1, 2', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       minHeap.push(3, 1, 2);
       assert.strictEqual(minHeap.peak(), 1);
     });
 
     it('#.pop() should return undefined when heap is empty', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       assert.strictEqual(minHeap.pop(), undefined);
     });
 
     it('#.pop() should return 1 on first invocation when heap contains 3, 1, 2', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       minHeap.push(3, 1, 2);
       assert.strictEqual(minHeap.pop(), 1);
     });
 
     it('#.pop() should return 2 on second invocation when heap contains 3, 1, 2', () => {
-      const minHeap = new Heap<number>((a: number, b: number) => a - b);
+      const minHeap = new Heap();
       minHeap.push(3, 1, 2).pop();
       assert.strictEqual(minHeap.pop(), 2);
     });

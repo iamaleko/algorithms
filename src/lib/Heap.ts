@@ -1,8 +1,8 @@
-export default class Heap<Type> {
-  private _comparator: (a: Type, b: Type) => number;
+export default class Heap<Type = number> {
+  private _comparator;
   private _heap: Type[];
 
-  constructor(comparator: (a: Type, b: Type) => number) {
+  constructor(comparator: (a: Type, b: Type) => number = (a: Type, b: Type) => Number(a) - Number(b)) {
     this._comparator = comparator;
     this._heap = [];
   }

@@ -1,7 +1,7 @@
-export default class HeapSort<Type> {
-  private _comparator: (a: Type, b: Type) => number;
+export default class HeapSort<Type = number> {
+  private _comparator;
 
-  constructor(comparator: (a: Type, b: Type) => number) {
+  constructor(comparator: (a: Type, b: Type) => number = (a: Type, b: Type) => Number(a) - Number(b)) {
     this._comparator = comparator;
   }
 
