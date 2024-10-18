@@ -1,7 +1,8 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./test/**/*"],
   "compilerOptions": {
     "paths": {
+      "@src/*": ["./src/*"],
       "@lib/*": ["./src/lib/*"],
     },
     "allowSyntheticDefaultImports": true,
@@ -13,7 +14,6 @@
     "outDir": "./public",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "esModuleInterop": true,
-    "incremental": true
+    "esModuleInterop": true
   }
 }

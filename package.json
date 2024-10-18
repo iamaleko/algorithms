@@ -2,10 +2,19 @@
   "name": "algorithms",
   "version": "1.0.0",
   "description": "Algorithms snippets not to forget about",
-  "main": "index.js",
+  "main": "./public/index.js",
+  "module": "./public/index.mjs",
+  "types": "./public/index.d.ts",
+  "files": [
+    "public"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamaleko/algorithms.git"
+  },
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "tsc",
+    "watch": "tsup --watch",
+    "build": "tsup",
     "test": "mocha"
   },
   "type": "module",
@@ -13,9 +22,9 @@
   "license": "ISC",
   "devDependencies": {
     "@types/assert": "^1.5.10",
-    "@types/expect": "^1.20.4",
     "@types/mocha": "^10.0.9",
     "mocha": "^10.7.3",
+    "tsup": "^8.3.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   }
