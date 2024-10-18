@@ -1,5 +1,5 @@
-import assert from 'node:assert';
-import HeapSort from '../../lib/heap_sort.js';
+import assert from 'assert';
+import { HeapSort } from '../src/index.js';
 
 describe('HeapSort', () => {
   describe('new HeapSort()', () => {

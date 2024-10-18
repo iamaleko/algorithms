@@ -1,0 +1,19 @@
+{
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "paths": {
+      "@lib/*": ["./src/lib/*"],
+    },
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "target": "es6",
+    "module": "es6",
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "./public",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "incremental": true
+  }
+}

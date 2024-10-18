@@ -4,13 +4,19 @@
   "description": "Algorithms snippets not to forget about",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive",
-    "test_dir": "mocha"
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "test": "mocha"
   },
   "type": "module",
-  "author": "",
+  "author": "@iamaleko",
   "license": "ISC",
-  "dependencies": {
-    "mocha": "^10.4.0"
+  "devDependencies": {
+    "@types/assert": "^1.5.10",
+    "@types/expect": "^1.20.4",
+    "@types/mocha": "^10.0.9",
+    "mocha": "^10.7.3",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
   }
 }
