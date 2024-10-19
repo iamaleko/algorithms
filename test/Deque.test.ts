@@ -68,8 +68,8 @@ describe('Deque', () => {
       assert.strictEqual(deque.rotate(), deque);
     });
 
-    it('#.rotate(-2) should return this', () => {
-      assert.strictEqual(deque.rotate(-2), deque);
+    it('#.rotate(-6) should return this', () => {
+      assert.strictEqual(deque.rotate(-6), deque);
     });
 
     it('[...deque] should return [22, 3, 4, 1] when deque contains 22, 3, 4, 1', () => {
