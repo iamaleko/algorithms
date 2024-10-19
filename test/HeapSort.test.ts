@@ -2,7 +2,7 @@ import assert from 'assert';
 import { HeapSort } from '@src/index.js';
 
 describe('HeapSort', () => {
-  describe('new HeapSort((a, b) => a - b)', () => {
+  describe('new HeapSort()', () => {
     const ascSorter = new HeapSort();
 
     it('#.sort() should return 1,2 for 2,1', () => {
@@ -29,7 +29,7 @@ describe('HeapSort', () => {
     });
   });
   describe('new HeapSort((a, b) => b - a)', () => {
-    const descSorter = new HeapSort<number>((a: number, b: number) => b - a);
+    const descSorter = new HeapSort((a: number, b: number) => b - a);
 
     it('#.sort() should return 2,1 for 1,2', () => {
       assert.deepStrictEqual(descSorter.sort([1,2]), [2,1]);
