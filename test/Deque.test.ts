@@ -68,16 +68,16 @@ describe('Deque', () => {
       assert.strictEqual(deque.rotate(), deque);
     });
 
-    it('#.head should return 4 when deque contains 4, 1, 22, 3', () => {
-      assert.strictEqual(deque.head, 4);
-    });
-
     it('#.rotate(-2) should return this', () => {
       assert.strictEqual(deque.rotate(-2), deque);
     });
 
-    it('#.head should return 4 when deque contains 22, 3, 4, 1', () => {
-      assert.strictEqual(deque.head, 22);
+    it('[...deque] should return [22, 3, 4, 1] when deque contains 22, 3, 4, 1', () => {
+      assert.deepStrictEqual([...deque], [22, 3, 4, 1]);
+    });
+
+    it('Array.from(#) should return [22, 3, 4, 1] when deque contains 22, 3, 4, 1', () => {
+      assert.deepStrictEqual(Array.from(deque), [22, 3, 4, 1]);
     });
 
     it('#.index(4) should return 2 when deque contains 22, 3, 4, 1', () => {

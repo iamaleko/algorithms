@@ -19,6 +19,14 @@ export default class Deque<Type = number> {
     this._length = 0;
   }
 
+  *[Symbol.iterator] () {
+    let node = this._head;
+    while (node) {
+      yield node.val;
+      node = node.next;
+    }
+  }
+
   // O(1)
   get length() {
     return this._length;
