@@ -72,7 +72,7 @@ describe('Deque', () => {
       assert.strictEqual(deque.rotate(-6), deque);
     });
 
-    it('[...deque] should return [22, 3, 4, 1] when deque contains 22, 3, 4, 1', () => {
+    it('[...#] should return [22, 3, 4, 1] when deque contains 22, 3, 4, 1', () => {
       assert.deepStrictEqual([...deque], [22, 3, 4, 1]);
     });
 
