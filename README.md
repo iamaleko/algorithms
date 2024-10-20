@@ -5,6 +5,7 @@ Some algorithms and data structures not to forget about:
 - [HeapSort](https://github.com/iamaleko/algorithms/blob/main/src/lib/HeapSort.ts)
 - [Deque](https://github.com/iamaleko/algorithms/blob/main/src/lib/Deque.ts)
 - [UnionFind](https://github.com/iamaleko/algorithms/blob/main/src/lib/UnionFind.ts)
+- [Hash](https://github.com/iamaleko/algorithms/blob/main/src/lib/Hash.ts) (DJB, BKDR, JSHC, FNV1, SDBM, DEK, ELF)
 
 ### TODO
 
@@ -28,8 +29,3 @@ Some algorithms and data structures not to forget about:
 - A*
 - KMeans
 - KNeighbours
-- DJBHash
-- DJB2Hash
-- LoseLoseHash
-- SDBMHash
-- BKDRHash
