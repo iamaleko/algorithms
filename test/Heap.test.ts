@@ -14,9 +14,9 @@ describe('Heap', () => {
       assert.strictEqual(minHeap.length, 3);
     });
 
-    it('#.peak() should return undefined when heap is empty', () => {
+    it('#.peak() should return null when heap is empty', () => {
       const minHeap = new Heap();
-      assert.strictEqual(minHeap.peak(), undefined);
+      assert.strictEqual(minHeap.peak(), null);
     });
 
     it('#.peak() should return 1 when heap contains 3, 1, 2', () => {
@@ -25,9 +25,9 @@ describe('Heap', () => {
       assert.strictEqual(minHeap.peak(), 1);
     });
 
-    it('#.pop() should return undefined when heap is empty', () => {
+    it('#.pop() should return null when heap is empty', () => {
       const minHeap = new Heap();
-      assert.strictEqual(minHeap.pop(), undefined);
+      assert.strictEqual(minHeap.pop(), null);
     });
 
     it('#.pop() should return 1 on first invocation when heap contains 3, 1, 2', () => {
@@ -41,8 +41,8 @@ describe('Heap', () => {
       minHeap.push(3, 1, 2).pop();
       assert.strictEqual(minHeap.pop(), 2);
     });
-
   });
+  
   describe('new Heap((a: number, b: number) => b - a)', () => {
     it('#.length should return 0 when heap is empty', () => {
       const maxHeap = new Heap((a: number, b: number) => b - a);
@@ -55,9 +55,9 @@ describe('Heap', () => {
       assert.strictEqual(maxHeap.length, 3);
     });
 
-    it('#.peak() should return undefined when heap is empty', () => {
+    it('#.peak() should return null when heap is empty', () => {
       const maxHeap = new Heap((a: number, b: number) => b - a);
-      assert.strictEqual(maxHeap.peak(), undefined);
+      assert.strictEqual(maxHeap.peak(), null);
     });
 
     it('#.peak() should return 3 when heap contains 3, 1, 2', () => {
@@ -66,9 +66,9 @@ describe('Heap', () => {
       assert.strictEqual(maxHeap.peak(), 3);
     });
 
-    it('#.pop() should return undefined when heap is empty', () => {
+    it('#.pop() should return null when heap is empty', () => {
       const maxHeap = new Heap((a: number, b: number) => b - a);
-      assert.strictEqual(maxHeap.pop(), undefined);
+      assert.strictEqual(maxHeap.pop(), null);
     });
 
     it('#.pop() should return 3 on first invocation when heap contains 3, 1, 2', () => {
@@ -82,6 +82,5 @@ describe('Heap', () => {
       maxHeap.push(3, 1, 2).pop();
       assert.strictEqual(maxHeap.pop(), 2);
     });
-
   });
 })

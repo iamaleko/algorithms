@@ -141,7 +141,7 @@ export default class BinarySearchTree<Type = number> {
         node = node.left;
       }
     } 
-    return successor ? successor.val : null;
+    return successor?.val ?? null;
   }
 
   /**
@@ -159,7 +159,7 @@ export default class BinarySearchTree<Type = number> {
         node = node.right;
       }
     } 
-    return predecessor ? predecessor.val : null;
+    return predecessor?.val ?? null;
   }
 
   /**

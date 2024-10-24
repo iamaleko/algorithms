@@ -7,41 +7,59 @@ export default class Heap<Type = number> {
     this._heap = [];
   }
 
-  // O(1)
-  get length() {
+  get length(): number {
     return this._heap.length;
   }
 
-  // O(Log n)
-  pop(): Type | undefined {
+  /**
+   * Remove first value and return it.
+   * O(log n) complexity.
+   */
+  pop(): Type | null {
     if (this.length > 1) {
       [this._heap[0], this._heap[this.length - 1]] = [this._heap[this.length - 1], this._heap[0]];
       this._sink(0, this.length - 1);
+      return this._heap.pop()!;
     }
-    return this._heap.pop();
+    return null;
   }
 
-  // O(n Log n)
-  push(...args: Type[]): Heap<Type> {
-    this._heap.push(...args);
-    for (let i = this.length - args.length; i < this.length; i++) this._bubble(i);
+  /**
+   * Add new values in the heap.
+   * O(log n) complexity for each added node.
+   */
+  push(...vals: Type[]): Heap<Type> {
+    this._heap.push(...vals);
+    for (let i = this.length - vals.length; i < this.length; i++) this._bubble(i);
     return this;
   }
 
-  // O(Log n)
-  poppush(newNode: Type): Type | undefined {
-    const oldNode = this._heap[0];
-    this._heap[0] = newNode;
-    if (this.length > 1) this._sink();
-    return oldNode;
+  /**
+   * Remove first value, return it, and add new value. Faster than #.pop().push() chain.
+   * O(log n) complexity.
+   */
+  poppush(val: Type): Type | null {
+    this._heap.push(val);
+    if (this.length > 1) {
+      [this._heap[0], this._heap[this.length - 1]] = [this._heap[this.length - 1], this._heap[0]];
+      this._sink(0, this.length - 1);
+      return this._heap.pop()!;
+    }
+    return null;
   }
 
-  // O(1)
-  peak(): Type | undefined {
-    return this._heap[0];
+  /**
+   * Return first value.
+   * O(1) complexity.
+   */
+  peak(): Type | null {
+    return this.length ? this._heap[0] : null;
   }
 
-  // O(1)
+  /**
+   * Reset the heap.
+   * O(1) complexity.
+   */
   clear(): Heap<Type> {
     this._heap = [];
     return this;
