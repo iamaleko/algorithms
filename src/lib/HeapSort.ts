@@ -5,7 +5,9 @@ export default class HeapSort<Type = number> {
     this._comparator = comparator;
   }
 
-  // O(n Log n)
+  /**
+   * O(n log n) complexity.
+   */
   sort(arr: Type[]): Type[] {
     if (arr.length > 1) {
       for (let i = arr.length - 2 >>> 1; i >= 0; i--) {
