@@ -15,8 +15,8 @@ describe('UnionFind', () => {
       assert.strictEqual(ds.length, 2);
     });
 
-    it('#.find(5) should return undefined when disjoint sets contain (1, 2, 3, 4), (11, 22, 33, 44)', () => {
-      assert.strictEqual(ds.find(5), undefined);
+    it('#.find(5) should return null when disjoint sets contain (1, 2, 3, 4), (11, 22, 33, 44)', () => {
+      assert.strictEqual(ds.find(5), null);
     });
 
     it('#.add(5, 55) should return this', () => {

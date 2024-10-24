@@ -5,7 +5,7 @@ export default class UnionFind<Type = number> {
   constructor(...nodes: Type[]) {
     this._parent = new Map();
     this._size = new Map();
-    this.add(...nodes);
+    if (nodes.length) this.add(...nodes as [Type, ...Type[]]);
   }
 
   get length(): number {
@@ -13,12 +13,14 @@ export default class UnionFind<Type = number> {
   }
 
   *[Symbol.iterator]() {
-    for (const entry of this._size.entries()) {
-      yield entry;
-    }
+    yield* this._size[Symbol.iterator]();
   }
 
-  add(...nodes: Type[]): this {
+  /**
+   * Add new nodes in the disjoint sets collection.
+   * O(log n) complexity for each added node.
+   */
+  add(...nodes: [Type, ...Type[]]): this {
     for (const node of nodes) {
       if (!this._parent.has(node)) {
         this._parent.set(node, node);
@@ -28,6 +30,10 @@ export default class UnionFind<Type = number> {
     return this;
   }
 
+  /**
+   * Connect two nodes in the disjoint sets collection.
+   * O(log n) complexity.
+   */
   union(nodeA: Type, nodeB: Type): Type {
     this.add(nodeA, nodeB);
     nodeA = this._compress(nodeA);
@@ -41,10 +47,18 @@ export default class UnionFind<Type = number> {
     return nodeA;
   }
 
-  find(node: Type): Type | undefined {
-    return this._parent.has(node) ? this._compress(node) : undefined;
+  /**
+   * Return root node from disjoint set, containing specified node.
+   * O(log n) complexity.
+   */
+  find(node: Type): Type | null {
+    return this._parent.has(node) ? this._compress(node) : null;
   }
 
+  /**
+   * Reset the disjoint sets collection.
+   * O(1) complexity.
+   */
   clear(): this {
     this._parent.clear();
     this._size.clear();

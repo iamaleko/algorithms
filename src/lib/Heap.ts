@@ -26,7 +26,7 @@ export default class Heap<Type = number> {
 
   /**
    * Add new values in the heap.
-   * O(log n) complexity for each added node.
+   * O(log n) complexity for each added value.
    */
   push(...vals: Type[]): Heap<Type> {
     this._heap.push(...vals);
