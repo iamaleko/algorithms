@@ -6,14 +6,10 @@ Some algorithms and data structures not to forget about:
 - [Deque](https://github.com/iamaleko/algorithms/blob/main/src/lib/Deque.ts)
 - [UnionFind](https://github.com/iamaleko/algorithms/blob/main/src/lib/UnionFind.ts)
 - [Hash](https://github.com/iamaleko/algorithms/blob/main/src/lib/Hash.ts) (DJB, BKDR, JSHC, FNV1, SDBM, DEK, ELF)
+- [BinarySearchTree](https://github.com/iamaleko/algorithms/blob/main/src/lib/BinarySearchTree.ts)
 
 ### TODO
 
-- Stack
-- MonotonicStack
-- SkipList
-- BinarySearch
-- BinarySearchTree
 - SplayTree
 - AVLTree
 - RedBlackTree
@@ -21,6 +17,8 @@ Some algorithms and data structures not to forget about:
 - RTree
 - BTree
 - Trie
+- SkipList
+- BinarySearch
 - QuickSort
 - MergeSort
 - RadixSort
