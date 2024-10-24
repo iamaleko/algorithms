@@ -4,12 +4,12 @@ import { Deque } from '@src/index.js';
 describe('Deque', () => {
   const deque = new Deque();
   describe('new Deque()', () => {
-    it('#.shift() should return undefined when deque is empty', () => {
-      assert.strictEqual(deque.shift(), undefined);
+    it('#.shift() should return null when deque is empty', () => {
+      assert.strictEqual(deque.shift(), null);
     });
 
-    it('#.pop() should return undefined when deque is empty', () => {
-      assert.strictEqual(deque.pop(), undefined);
+    it('#.pop() should return null when deque is empty', () => {
+      assert.strictEqual(deque.pop(), null);
     });
 
     it('#.length should return 0 when deque is empty', () => {
@@ -48,12 +48,12 @@ describe('Deque', () => {
       assert.strictEqual(deque.length, 4);
     });
 
-    it('#.remove(2) should return true when deque contains 1, 2, 3, 4', () => {
-      assert.strictEqual(deque.remove(2), true);
+    it('#.delete(2) should return true when deque contains 1, 2, 3, 4', () => {
+      assert.strictEqual(deque.delete(2), true);
     });
 
-    it('#.remove(2) should return false when deque contains 1, 3, 4', () => {
-      assert.strictEqual(deque.remove(2), false);
+    it('#.delete(2) should return false when deque contains 1, 3, 4', () => {
+      assert.strictEqual(deque.delete(2), false);
     });
 
     it('#.insert(22, 1) should return true when deque contains 1, 3, 4', () => {
