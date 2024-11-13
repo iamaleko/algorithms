@@ -15,8 +15,8 @@ export class BinarySearchTreeNode<Type = number> {
 }
 
 export default class BinarySearchTree<Type = number> {
-  private _root: BinarySearchTreeNode<Type> | null = null;
-  private _length: number = 0;
+  protected _root: BinarySearchTreeNode<Type> | null = null;
+  protected _length: number = 0;
   private _comparator;
 
   constructor(comparator: (a: Type, b: Type) => number = (a: Type, b: Type) => Number(a) - Number(b)) {
@@ -61,110 +61,41 @@ export default class BinarySearchTree<Type = number> {
 
   /**
    * Add new nodes in the tree.
-   * O(log n) complexity for each added node.
+   * O(n) complexity for each added node, O(log n) if balanced.
    */
   add(...vals: [Type, ...Type[]]): this {
-    this._length += vals.length;
-    let node: BinarySearchTreeNode<Type> | null = null;
-    for (const val of vals) {
-      const newNode = new BinarySearchTreeNode<Type>(val);
-      if (!this._root) this._root = newNode;
-      node = this._root;
-      while (node !== newNode) {
-        if (this._comparator(node.val, val) >= 0) {
-          if (!node.left) node.left = newNode;
-          node = node.left;
-        } else {
-          if (!node.right) node.right = newNode;
-          node = node.right;
-        }
-      }
-    }
+    for (const val of vals) this._add(val);
     return this;
   }
 
   /**
    * Delete nodes from the tree.
-   * O(log n) complexity for each deleted node.
+   * O(n) complexity for each deleted node, O(log n) if balanced.
    */
   delete(...vals: [Type, ...Type[]]): this {
-    for (const val of vals) {
-      let [node, parent] = this._find(val);
-      while (node) {
-        if (node.left && node.right) {
-          let successor = node.right;
-          parent = node;
-          while (successor?.left) {
-            parent = successor;
-            successor = successor.left;
-          }
-          node.val = successor.val;
-          node = successor;
-          continue;
-        } else if (!node.left && !node.right) {
-          if (!parent) {
-            this._root = null;
-          } else if (parent.left === node) {
-            parent.left = null;
-          } else {
-            parent.right = null;
-          }
-        } else if (node.left) {
-          node.val = node.left.val;
-          node.right = node.left.right;
-          node.left = node.left.left;
-        } else if (node.right) {
-          node.val = node.right.val;
-          node.left = node.right.left;
-          node.right = node.right.right;
-        }
-
-        this._length--;
-        break;
-      }
-    }
+    for (const val of vals) this._delete(val);
     return this;
   }
 
   /**
    * Retrieve next greater value for specified value.
-   * O(log n) complexity.
+   * O(n) complexity, O(log n) if balanced.
    */
   successor(val: Type): Type | null {
-    let node = this._root,
-        successor: BinarySearchTreeNode<Type> | null = null;
-    while (node) {
-      if (this._comparator(node.val, val) <= 0) {
-        node = node.right;
-      } else {
-        successor = node;
-        node = node.left;
-      }
-    } 
-    return successor?.val ?? null;
+    return this._successor(val)?.val ?? null;
   }
 
   /**
    * Retrieve next smaller value for specified value.
-   * O(log n) complexity.
+   * O(n) complexity, O(log n) if balanced.
    */
   predecessor(val: Type): Type | null {
-    let node = this._root,
-        predecessor: BinarySearchTreeNode<Type> | null = null;
-    while (node) {
-      if (this._comparator(node.val, val) >= 0) {
-        node = node.left;
-      } else {
-        predecessor = node;
-        node = node.right;
-      }
-    } 
-    return predecessor?.val ?? null;
+    return this._predecessor(val)?.val ?? null;
   }
 
   /**
    * Check existance of specified val in the tree.
-   * O(log n) complexity.
+   * O(n) complexity, O(log n) if balanced.
    */
   has(val: Type): boolean {
     return this._find(val)[0] !== null;
@@ -204,7 +135,89 @@ export default class BinarySearchTree<Type = number> {
     }
   }
 
-  private _find(val: Type): [BinarySearchTreeNode<Type> | null, BinarySearchTreeNode<Type> | null] {
+  protected _add(val: Type): [BinarySearchTreeNode<Type>, BinarySearchTreeNode<Type> | null] {
+    this._length++;
+    if (!this._root) {
+      return [this._root = new BinarySearchTreeNode<Type>(val), null];
+    } else {
+      let node = this._root;
+      while (true) {
+        if (this._comparator(node.val, val) >= 0) {
+          if (!node.left) return [node.left = new BinarySearchTreeNode<Type>(val), node];
+          node = node.left;
+        } else {
+          if (!node.right) return [node.right = new BinarySearchTreeNode<Type>(val), node];
+          node = node.right;
+        }
+      }
+    }
+  }
+
+  protected _delete(val: Type): void {
+    let [node, parent] = this._find(val);
+    while (node) {
+      if (node.left && node.right) {
+        let successor = node.right;
+        parent = node;
+        while (successor?.left) {
+          parent = successor;
+          successor = successor.left;
+        }
+        node.val = successor.val;
+        node = successor;
+        continue;
+      } else if (!node.left && !node.right) {
+        if (!parent) {
+          this._root = null;
+        } else if (parent.left === node) {
+          parent.left = null;
+        } else {
+          parent.right = null;
+        }
+      } else if (node.left) {
+        node.val = node.left.val;
+        node.right = node.left.right;
+        node.left = node.left.left;
+      } else if (node.right) {
+        node.val = node.right.val;
+        node.left = node.right.left;
+        node.right = node.right.right;
+      }
+
+      this._length--;
+      break;
+    }
+  }
+
+  protected _successor(val: Type): BinarySearchTreeNode<Type> | null {
+    let node = this._root,
+        successor: BinarySearchTreeNode<Type> | null = null;
+    while (node) {
+      if (this._comparator(node.val, val) <= 0) {
+        node = node.right;
+      } else {
+        successor = node;
+        node = node.left;
+      }
+    } 
+    return successor;
+  }
+
+  protected _predecessor(val: Type): BinarySearchTreeNode<Type> | null {
+    let node = this._root,
+        predecessor: BinarySearchTreeNode<Type> | null = null;
+    while (node) {
+      if (this._comparator(node.val, val) >= 0) {
+        node = node.left;
+      } else {
+        predecessor = node;
+        node = node.right;
+      }
+    } 
+    return predecessor;
+  }
+
+  protected _find(val: Type): [BinarySearchTreeNode<Type> | null, BinarySearchTreeNode<Type> | null] {
     let node = this._root,
         parent: BinarySearchTreeNode<Type> | null = null,
         compare: number;

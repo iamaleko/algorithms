@@ -1,6 +1,7 @@
-export { default as Heap } from '@lib/Heap.js';
-export { default as HeapSort } from '@lib/HeapSort.js';
-export { default as Deque } from '@lib/Deque.js';
-export { default as UnionFind } from '@lib/UnionFind.js';
-export { default as Hash } from '@lib/Hash.js';
-export { default as BinarySearchTree } from '@lib/BinarySearchTree.js';
+export { default as Heap } from '@lib/Heap';
+export { default as HeapSort } from '@lib/HeapSort';
+export { default as Deque } from '@lib/Deque';
+export { default as UnionFind } from '@lib/UnionFind';
+export { default as Hash } from '@lib/Hash';
+export { default as BinarySearchTree } from '@lib/BinarySearchTree';
+export { default as SplayTree } from '@lib/SplayTree';

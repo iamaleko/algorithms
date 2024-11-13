@@ -7,10 +7,10 @@ Some algorithms and data structures not to forget about:
 - [UnionFind](https://github.com/iamaleko/algorithms/blob/main/src/lib/UnionFind.ts)
 - [Hash](https://github.com/iamaleko/algorithms/blob/main/src/lib/Hash.ts) (DJB, BKDR, JSHC, FNV1, SDBM, DEK, ELF)
 - [BinarySearchTree](https://github.com/iamaleko/algorithms/blob/main/src/lib/BinarySearchTree.ts)
+- [SplayTree](https://github.com/iamaleko/algorithms/blob/main/src/lib/SplayTree.ts)
 
 ### TODO
 
-- SplayTree
 - AVLTree
 - RedBlackTree
 - KDTree
