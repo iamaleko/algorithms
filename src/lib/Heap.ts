@@ -19,9 +19,8 @@ export default class Heap<Type = number> {
     if (this.length > 1) {
       [this._heap[0], this._heap[this.length - 1]] = [this._heap[this.length - 1], this._heap[0]];
       this._sink(0, this.length - 1);
-      return this._heap.pop()!;
     }
-    return null;
+    return this._heap.pop() ?? null;
   }
 
   /**

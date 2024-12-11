@@ -8,6 +8,15 @@ describe('Heap', () => {
       assert.strictEqual(minHeap.length, 0);
     });
 
+    it('#.length should return 0 after removing last element', () => {
+      const minHeap = new Heap();
+      minHeap.push(1, 2, 3);
+      minHeap.pop();
+      minHeap.pop();
+      minHeap.pop();
+      assert.strictEqual(minHeap.length, 0);
+    });
+
     it('#.length should return 3 when heap contains 3, 1, 2', () => {
       const minHeap = new Heap();
       minHeap.push(3, 1, 2);
