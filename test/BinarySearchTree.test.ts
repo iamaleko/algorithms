@@ -12,8 +12,8 @@ describe('BinarySearchTree', () => {
       assert.strictEqual(tree.delete(0), tree);
     });
 
-    it('#.has(2) should return false when tree is empty', () => {
-      assert.strictEqual(tree.has(2), false);
+    it('#.get(2) should return null when tree is empty', () => {
+      assert.strictEqual(tree.get(2), null);
     });
 
     it('#.add(5,6,4,3,8,2,1,7,0,9) should return this', () => {
@@ -40,8 +40,8 @@ describe('BinarySearchTree', () => {
       assert.deepStrictEqual([...tree.postorder()], [0,1,2,3,4,7,9,8,6,5]);
     });
 
-    it('#.has(2) should return true when tree contains 5, 6, 4, 3, 8, 2, 1, 7, 0, 9', () => {
-      assert.strictEqual(tree.has(2), true);
+    it('#.get(2) should return 2 when tree contains 5, 6, 4, 3, 8, 2, 1, 7, 0, 9', () => {
+      assert.strictEqual(tree.get(2), 2);
     });
 
     it('#.delete(0,2,4,6,8) should return this', () => {
@@ -52,8 +52,8 @@ describe('BinarySearchTree', () => {
       assert.deepStrictEqual([...tree], [1,3,5,7,9]);
     });
 
-    it('#.has(2) should return false when tree contains 5, 3, 1, 7, 9', () => {
-      assert.strictEqual(tree.has(2), false);
+    it('#.get(2) should return null when tree contains 5, 3, 1, 7, 9', () => {
+      assert.strictEqual(tree.get(2), null);
     });
 
     it('#.add(5,5,5) should return this', () => {

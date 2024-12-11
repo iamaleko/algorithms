@@ -53,13 +53,16 @@ export default class SplayTree<Type = number> extends BinarySearchTree<Type> {
   }
 
   /**
-   * Check existance of specified val in the tree.
-   * O(log n) complexity.
+   * Retrieve specified val.
+   * O(n) complexity.
    */
-  has(val: Type): boolean {
+  get(val: Type): Type | null {
     const [node] = this._find(val) as [SplayTreeNode<Type> | null, SplayTreeNode<Type> | null];
-    if (node) this._splay(node);
-    return node !== null;
+    if (node) {
+      this._splay(node);
+      return node.val;
+    }
+    return null;
   }
 
   protected _delete(val: Type): void {

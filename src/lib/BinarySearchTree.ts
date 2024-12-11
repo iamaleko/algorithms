@@ -94,11 +94,11 @@ export default class BinarySearchTree<Type = number> {
   }
 
   /**
-   * Check existance of specified val in the tree.
+   * Retrieve specified val.
    * O(n) complexity, O(log n) if balanced.
    */
-  has(val: Type): boolean {
-    return this._find(val)[0] !== null;
+  get(val: Type): Type | null {
+    return this._find(val)[0]?.val ?? null;
   }
 
   /**
