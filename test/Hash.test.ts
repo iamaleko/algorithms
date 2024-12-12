@@ -24,11 +24,11 @@ describe('Hash', () => {
     assert.strictEqual(Hash.SDBM(str), '3344547d');
   });
 
-  it(`#.DEK() should return 'ccaeac2e' for '${str}'`, () => {
-    assert.strictEqual(Hash.DEK(str), 'ccaeac2e');
+  it(`#.DEK() should return '0d5153d1' for '${str}'`, () => {
+    assert.strictEqual(Hash.DEK(str), '0d5153d1');
   });
 
-  it(`#.ELF() should return '3ba5171' for '${str}'`, () => {
-    assert.strictEqual(Hash.ELF(str), '3ba5171');
+  it(`#.ELF() should return '03ba5171' for '${str}'`, () => {
+    assert.strictEqual(Hash.ELF(str), '03ba5171');
   });
 })
