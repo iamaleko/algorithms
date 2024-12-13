@@ -3,6 +3,7 @@ Some algorithms and data structures not to forget about:
 
 - [Heap](https://github.com/iamaleko/algorithms/blob/main/src/lib/Heap.ts)
 - [HeapSort](https://github.com/iamaleko/algorithms/blob/main/src/lib/HeapSort.ts)
+- [MergeSort](https://github.com/iamaleko/algorithms/blob/main/src/lib/MergeSort.ts)
 - [Deque](https://github.com/iamaleko/algorithms/blob/main/src/lib/Deque.ts)
 - [UnionFind](https://github.com/iamaleko/algorithms/blob/main/src/lib/UnionFind.ts)
 - [Hash](https://github.com/iamaleko/algorithms/blob/main/src/lib/Hash.ts) (DJB, BKDR, JSHC, FNV1, SDBM, DEK, ELF)
@@ -20,7 +21,6 @@ Some algorithms and data structures not to forget about:
 - SkipList
 - BinarySearch
 - QuickSort
-- MergeSort
 - RadixSort
 - BFS
 - DFS
