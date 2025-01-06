@@ -43,7 +43,7 @@ export default class Hash {
     return this._toString(hash);
   }
 
-  // By Donald E. Knuth, 0d5153d1
+  // By Donald E. Knuth
   static DEK(str: string): string {
     let hash = BigInt(str.length);
     for (const byte of new TextEncoder().encode(str)) {
